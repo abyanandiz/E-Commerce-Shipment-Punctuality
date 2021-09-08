@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+  <link rel = "stylesheet" href = "{{ url_for('static', filename='css/style.css')
+}}">
+  <title>H8 Model Deployment</title>
+</head>
+<!-- 'Warehouse_block', 'Mode_of_Shipment', 'Customer_care_calls',
+       'Customer_rating', 'Cost_of_the_Product', 'Prior_purchases',
+       'Product_importance', 'Gender', 'Discount_offered', 'Weight_in_gms' -->
+<body>
+ <div class="form">
+	<h1>E-commerce Shipment Punctunuality Prediction</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='style.css')}}">
+    <form action="{{ url_for('predict')}}" method="post">
+      <label for="Warehouse_block">Choose the warehouse block:</label>
+      <select id="Warehouse_block" name="Warehouse_block">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C" selected>C</option>
+        <option value="D">D</option>
+        <option value="F">F</option>
+      </select>
+      <br><br>
+    
+    
+    
+      <label for='Mode_of_Shipment'>Choose Shipment:</label>
+      <select id='Mode_of_Shipment' name='Mode_of_Shipment'>
+        <option value="ship">Ship</option>
+        <option value="flight">Flight</option>
+        <option value="road" selected>Road</option>
+      </select>
+      <br><br>
+    
+    
+    
+      <label for='Customer_care_calls'>Customer care call:</label>
+      <input type="text" id='Customer_care_calls' name='Customer_care_calls'><br>
+      <br>
+    
+    
+    
+      <label for='Customer_rating'>Customer rating:</label>
+      <select id='Customer_rating' name='Customer_rating'>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <br><br>
+    
+    
+    
+      <label for='Cost_of_the_Product'>Cost of product:</label><br>
+      <input type="text" id='Cost_of_the_Product' name='Cost_of_the_Product'><br>
+      <br>
+    
+    
+    
+      <label for='Prior_purchases'>Prior purchase:</label>
+      <select id='Prior_purchases' name='Prior_purchases'>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <br><br>
+    
+    
+    
+      <label for='Product_importance'>Importance of product:</label>
+      <select id='Product_importance' name='Product_importance'>
+        <option value="low">1ow</option>
+        <option value="medium">medium</option>
+        <option value="high" selected>high</option>
+      </select>
+      <br><br>
+    
+    
+    
+      <label for='Gender'>Gender:</label>
+      <select id='Gender' name='Gender'>
+        <option value="male">Male</option>
+        <option value="female" selected>Female</option>
+      </select>
+      <br><br>
+    
+    
+    
+      <label for='Discount_offered'>Discount offered:</label><br>
+      <input type="text" id='Discount_offered' name='Discount_offered'><br><br>
+      
+    
+    
+    
+      <label for='Weight_in_gms'>Weight(grams):</label><br>
+      <input type='tel' id='Weight_in_gms' name='Weight_in_gms'><br><br>
+    
+      <input type="submit" value="Submit">
+    </form>    
+    
+    <p class = "message">{{ prediction_text }}</p>
+   
+
+ </div>
+
+
+</body>
+</html>
